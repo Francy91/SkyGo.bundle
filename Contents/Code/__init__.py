@@ -352,7 +352,7 @@ def GroupMenu(sender, group_name = ''):
             subtitle = channel['subtitle'],
             summary = description,
             infoLabel = channel_number,
-            thumb = CHANNEL_LOGO_URL % channel_number))
+            thumb = CHANNEL_LOGO_URL % channel['url']))
     
     return dir
 

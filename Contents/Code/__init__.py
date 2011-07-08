@@ -12,6 +12,7 @@ ICON = 'icon-default.png'
 
 BASE_URL = 'http://go.sky.com'
 PLAYER_URL = 'http://go.sky.com/vod/page/tvListing.do?epgChannelId=%s'
+CHANNEL_LOGO_URL = 'http://epgstatic.sky.com/epgdata/1.0/newchanlogos/200/200/skychb%s.png'
 EPG_URL = 'http://www.sky.com/tvlistings-proxy/TVListingsProxy/tvlistings.json?detail=2&dur=1440&time=%(time)s&channels=%(channels)s'
 ON_DEMAND_URL = 'http://go.sky.com/vod/content/%s/Browse_by_Genre/%s/content/default/promoPage.do'
 
@@ -69,200 +70,167 @@ channels = {
         'url': SKY_ONE, 
         'title': L('Sky1Title'), 
         'subtitle': L('Sky1Subtitle'), 
-        'summary': L('Sky1Summary'),
-        'thumb': "icon-sky1.png" },
+        'summary': L('Sky1Summary')},
     "107": {
         'url': SKY_LIVING, 
         'title': L('SkyLivingTitle'), 
         'subtitle': L('SkyLivingSubtitle'), 
-        'summary': L('SkyLivingSummary'),
-        'thumb': "icon-skyliving.png" },
+        'summary': L('SkyLivingSummary')},
     "108": {
         'url': SKY_ATLANTIC, 
         'title': L('SkyAtlanticTitle'), 
         'subtitle': L('SkyAtlanticSubtitle'), 
-        'summary': L('SkyAtlanticSummary'),
-        'thumb': "icon-skyatlantic.png" },
+        'summary': L('SkyAtlanticSummary')},
     "110": {
         'url': GOLD, 
         'title': L('GoldTitle'), 
         'subtitle': L('GoldSubtitle'), 
-        'summary': L('GoldSummary'),
-        'thumb': "icon-gold.png" },
+        'summary': L('GoldSummary')},
     "122": {
         'url': SKY_LIVING_IT, 
         'title': L('SkyLivingitTitle'), 
         'subtitle': L('SkyLivingitSubtitle'), 
-        'summary': L('SkyLivingitSummary'),
-        'thumb': "icon-skylivingit.png" },
+        'summary': L('SkyLivingitSummary')},
     "126": {
         'url': MTV, 
         'title': L('MTVTitle'), 
         'subtitle': L('MTVSubtitle'), 
-        'summary': L('MTVSummary'),
-        'thumb': "icon-mtv.png" },
+        'summary': L('MTVSummary')},
     "243": {
         'url': SKY_ARTS_ONE, 
         'title': L('SkyArts1Title'), 
         'subtitle': L('SkyArts1Subtitle'), 
-        'summary': L('SkyArts1Summary'),
-        'thumb': "icon-skyarts1.png" },
+        'summary': L('SkyArts1Summary')},
     "301": {
         'url': SKY_PREMIERE, 
         'title': L('SkyPremiereTitle'), 
         'subtitle': L('SkyPremiereSubtitle'), 
-        'summary': L('SkyPremiereSummary'),
-        'thumb': "icon-skypremiere.png" },
+        'summary': L('SkyPremiereSummary')},
     "303": {
         'url': SKY_SHOWCASE, 
         'title': L('SkyMoviesShowcaseTitle'), 
         'subtitle': L('SkyMoviesShowcaseSubtitle'), 
-        'summary': L('SkyMoviesShowcaseSummary'),
-        'thumb': "icon-skymoviesshowcase.png" },
+        'summary': L('SkyMoviesShowcaseSummary')},
     "305": {
         'url': SKY_ACTION, 
         'title': L('SkyMoviesActionAdventureTitle'), 
         'subtitle': L('SkyMoviesActionAdventureSubtitle'), 
-        'summary': L('SkyMoviesActionAdventureSummary'),
-        'thumb': "icon-skymoviesactionadventure.png" },
+        'summary': L('SkyMoviesActionAdventureSummary')},
     "306": {
         'url': SKY_FAMILY, 
         'title': L('SkyMoviesFamilyTitle'), 
         'subtitle': L('SkyMoviesFamilySubtitle'), 
-        'summary': L('SkyMoviesFamilySummary'),
-        'thumb': "icon-skymoviesfamily.png" },
+        'summary': L('SkyMoviesFamilySummary')},
     "401": {
         'url': SKY_SPORTS_ONE, 
         'title': L('SkySports1Title'), 
         'subtitle': L('SkySports1Subtitle'), 
-        'summary': L('SkySports1Summary'),
-        'thumb': "icon-skysports1.png" },
+        'summary': L('SkySports1Summary')},
     "402": {
         'url': SKY_SPORTS_TWO, 
         'title': L('SkySports2Title'), 
         'subtitle': L('SkySports2Subtitle'), 
-        'summary': L('SkySports2Summary'),
-        'thumb': "icon-skysports2.png" },
+        'summary': L('SkySports2Summary')},
     "403": {
         'url': SKY_SPORTS_THREE, 
         'title': L('SkySports3Title'), 
         'subtitle': L('SkySports3Subtitle'), 
-        'summary': L('SkySports3Summary'),
-        'thumb': "icon-skysports3.png" },
+        'summary': L('SkySports3Summary')},
     "404": {
         'url': SKY_SPORTS_FOUR, 
         'title': L('SkySports4Title'), 
         'subtitle': L('SkySports4Subtitle'), 
-        'summary': L('SkySports4Summary'),
-        'thumb': "icon-skysports4.png" },
+        'summary': L('SkySports4Summary')},
     "405": {
         'url': SKY_SPORTS_NEWS, 
         'title': L('SkySportsNewsTitle'), 
         'subtitle': L('SkySportsNewsSubtitle'), 
-        'summary': L('SkySportsNewsSummary'),
-        'thumb': "icon-skysportsnews.png" },
+        'summary': L('SkySportsNewsSummary')},
     "410": {
         'url': EURO_SPORT, 
         'title': L('EurosportTitle'), 
         'subtitle': L('EurosportSubtitle'), 
-        'summary': L('EurosportSummary'),
-        'thumb': "icon-eurosport.png" },
+        'summary': L('EurosportSummary')},
     "411": {
         'url': EURO_SPORT_TWO, 
         'title': L('Eurosport2Title'), 
         'subtitle': L('Eurosport2Subtitle'), 
-        'summary': L('Eurosport2Summary'),
-        'thumb': "icon-eurosport2.png" },
+        'summary': L('Eurosport2Summary')},
     "417": {
         'url': ESPN,
         'title': L('ESPNTitle'), 
         'subtitle': L('ESPNSubtitle'), 
-        'summary': L('ESPNSummary'),
-        'thumb': "icon-espn.png" },
+        'summary': L('ESPNSummary')},
     "442": {
         'url': ESPN_CLASSIC,
         'title': L('ESPNClassicTitle'), 
         'subtitle': L('ESPNClassicSubtitle'), 
-        'summary': L('ESPNClassicSummary'),
-        'thumb': "icon-espnclassic.png" },
+        'summary': L('ESPNClassicSummary')},
     "499": {
         'url': SKY_SPORTS_XTRA, 
         'title': L('SkySportsXtraTitle'), 
         'subtitle': L('SkySportsXtraSubtitle'), 
-        'summary': L('SkySportsXtraSummary'),
-        'thumb': "icon-skysportsxtra.png" },
+        'summary': L('SkySportsXtraSummary')},
     "501": {
         'url': SKY_NEWS, 
         'title': L('SkyNewsTitle'), 
         'subtitle': L('SkyNewsSubtitle'), 
-        'summary': L('SkyNewsSummary'),
-        'thumb': "icon-skynews.png" },
+        'summary': L('SkyNewsSummary')},
     "526": {
         'url': NAT_GEO, 
         'title': L('NatGeoTitle'), 
         'subtitle': L('NatGeoSubtitle'), 
-        'summary': L('NatGeoSummary'),
-        'thumb': "icon-natgeo.png" },
+        'summary': L('NatGeoSummary')},
     "528": {
         'url': NAT_GEO_WILD, 
         'title': L('NatGeoWildTitle'), 
         'subtitle': L('NatGeoWildSubtitle'), 
-        'summary': L('NatGeoWildSummary'),
-        'thumb': "icon-natgeowild.png" },
+        'summary': L('NatGeoWildSummary')},
     "529": {
         'url': HISTORY, 
         'title': L('HistoryTitle'), 
         'subtitle': L('HistorySubtitle'), 
-        'summary': L('HistorySummary'),
-        'thumb': "icon-history.png" },
+        'summary': L('HistorySummary')},
     "532": {
         'url': EDEN, 
         'title': L('EdenTitle'), 
         'subtitle': L('EdenSubtitle'), 
-        'summary': L('EdenSummary'),
-        'thumb': "icon-eden.png" },
+        'summary': L('EdenSummary')},
     "553": {
         'url': CRIME_AND_INVESTIGATION, 
         'title': L('CrimeInvestigationTitle'), 
         'subtitle': L('CrimeInvestigationSubtitle'), 
-        'summary': L('CrimeInvestigationSummary'),
-        'thumb': "icon-crimeinvestigation.png" },
+        'summary': L('CrimeInvestigationSummary')},
     "601": {
         'url': CARTOON_NETWORK, 
         'title': L('CartoonNetworkTitle'), 
         'subtitle': L('CartoonNetworkSubtitle'), 
-        'summary': L('CartoonNetworkSummary'),
-        'thumb': "icon-cartoonnetwork.png" },
+        'summary': L('CartoonNetworkSummary')},
     "603": {
         'url': BOOMERANG, 
         'title': L('BoomerangTitle'), 
         'subtitle': L('BoomerangSubtitle'), 
-        'summary': L('BoomerangSummary'),
-        'thumb': "icon-boomerang.png" },
+        'summary': L('BoomerangSummary')},
     "604": {
         'url': NICKELODEON, 
         'title': L('NickelodeonTitle'), 
         'subtitle': L('NickelodeonSubtitle'), 
-        'summary': L('NickelodeonSummary'),
-        'thumb': "icon-nickelodeon.png" },
+        'summary': L('NickelodeonSummary')},
     "607": {
         'url': DISNEY_XD, 
         'title': L('DisneyXDTitle'), 
         'subtitle': L('DisneyXDSubtitle'), 
-        'summary': L('DisneyXDSummary'),
-        'thumb': "icon-disneyxd.png" },
+        'summary': L('DisneyXDSummary')},
     "609": {
         'url': DISNEY_CHANNEL, 
         'title': L('DisneyChannelTitle'), 
         'subtitle': L('DisneyChannelSubtitle'), 
-        'summary': L('DisneyChannelSummary'),
-        'thumb': "icon-disneychannel.png" },
+        'summary': L('DisneyChannelSummary')},
     "615": {
         'url': NICKELODEON_JR, 
         'title': L('NickelodeonJrTitle'), 
         'subtitle': L('NickelodeonJrSubtitle'), 
-        'summary': L('NickelodeonJrSummary'),
-        'thumb': "icon-nickjr.png" }}
+        'summary': L('NickelodeonJrSummary')}}
 
 group_names = [ 
     str(L('Entertainment')), 
@@ -384,7 +352,7 @@ def GroupMenu(sender, group_name = ''):
             subtitle = channel['subtitle'],
             summary = description,
             infoLabel = channel_number,
-            thumb = R(channel['thumb'])))
+            thumb = CHANNEL_LOGO_URL % channel_number))
     
     return dir
 

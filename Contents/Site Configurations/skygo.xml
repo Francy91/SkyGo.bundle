@@ -6,6 +6,9 @@
     initialState="wait-for-frame-load"
     manualLock="true"
     version="1.0">
+    
+    <!-- Crop the control to better fill the application -->
+    <crop x="662" y="9" width="326" height="185" />
 
     <!-- The condition we use several times from within states to check if we're logged in or not -->
     <condition name="need-to-login">
@@ -40,7 +43,8 @@
                 </not>
             </condition>
             <action>
-                <goto state="cleanup" />
+                <lockPlugin />
+                <goto state="playing" />
             </action>
         </event>
         <event>
@@ -79,14 +83,15 @@
     <state name="check-for-auth-again">
         <event>
             <condition>
-                <!-- If login was successful we should now not need to login and can go to the state 'cleanup' -->
+                <!-- If login was successful we should now not need to login and can go to the state 'playing' -->
                 <not>
                     <condition name="need-to-login" />
                 </not>
             </condition>
             <action>
                 <visit url="${url}" />
-                <goto state="cleanup" />
+                <lockPlugin />
+                <goto state="playing" />
             </action>
         </event>
         <event>
@@ -96,25 +101,6 @@
             </condition>
             <action>
                 <goto state="end" param="Please check your username and password in the plugin's settings" />
-            </action>
-        </event>
-    </state>
-
-    <!-- Cleanup -->
-    <state name="cleanup">
-        <event>
-            <condition>
-                <!-- We should wait until the DOM contains the main silverlight control. -->
-                <javascript script="silverlightControl != undefined" matches="1" />
-            </condition>
-            <action>
-                <!-- The live tv pages contain multiple silverlight controls which means that Plex -->
-                <!-- can easily select the wrong one. Therefore, we simplify the selection by removing -->
-                <!-- everything else from the page before progressing to the 'playing' state. -->
-                <run script="document.body=silverlightControl" />
-                <pause time="1000" />
-                <lockPlugin />
-                <goto state="playing" />
             </action>
         </event>
     </state>

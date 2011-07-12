@@ -611,7 +611,6 @@ def Search(sender, query, url = None):
     for item in items:
     
         title = item.xpath(".//div[@class='synopsisText']/h2/a/text()")[0]
-        Log(title)
     
         # If the specified URL is relative, then translate it
         image = item.xpath("./a//img")[0].get('src')

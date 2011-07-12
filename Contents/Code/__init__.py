@@ -360,7 +360,7 @@ def GroupMenu(sender, group_name = ''):
 # channel. This information includes the name of the show, along with a brief description.
 def NowAndNext(channel_url):
     epg = JSON.ObjectFromURL(EPG_URL % dict(time = dt.now().strftime('%Y%m%d%H%M'), channels = channel_url))
-    
+
     # Check to see if we've received anything.
     if epg == "":
         return ""
@@ -383,11 +383,14 @@ def NowAndNext(channel_url):
 
     # Determine the details of the titles which are "Now and Next"
     now_title = programs[0]['title']
-    now_desc = programs[0]['shortDesc']
+    now_desc = ""
+    if programs[0].has_key('shortDesc'):
+        now_desc = programs[0]['shortDesc']
 
     next_title = programs[1]['title']
-    next_desc = programs[1]['shortDesc']
-    
+    next_desc = ""
+    if programs[1].has_key('shortDesc'):
+        next_desc = programs[1]['shortDesc']
     
     return { "Now" : { "Title": now_title, "Description": now_desc }, "Next" : { "Title": next_title, "Description": next_desc } }
 

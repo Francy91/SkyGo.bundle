@@ -9,12 +9,14 @@ NAME = L('Title')
 
 ART = 'art-default.jpg'
 ICON = 'icon-default.png'
+ICON_SEARCH = 'icon-search.png'
 
 BASE_URL = 'http://go.sky.com'
 PLAYER_URL = 'http://go.sky.com/vod/page/tvListing.do?epgChannelId=%s'
 CHANNEL_LOGO_URL = 'http://epgstatic.sky.com/epgdata/1.0/newchanlogos/200/200/skychb%s.png'
 EPG_URL = 'http://www.sky.com/tvlistings-proxy/TVListingsProxy/tvlistings.json?detail=2&dur=1440&time=%(time)s&channels=%(channels)s'
 ON_DEMAND_URL = 'http://go.sky.com/vod/content/%s/Browse_by_Genre/%s/content/default/promoPage.do'
+SEARCH_URL = 'http://go.sky.com/vod/content/Home/Application_Navigation/Search_All/content/default/search.do?searchTerm=%s&searchTypeFilter=titleNameSearch'
 
 # Entertainment
 SKY_ONE = "1402"
@@ -300,6 +302,7 @@ def MainMenu():
     
     dir.Append(Function(DirectoryItem(LiveMenu, "Channels")))
     dir.Append(Function(DirectoryItem(OnDemandMainMenu, "Anytime+")))
+    dir.Append(Function(InputDirectoryItem(Search, L('Search'), L('SearchPrompt'), thumb = R(ICON_SEARCH))))
     
     # Preferences
     dir.Append(PrefsItem(L('Preferences'), thumb=R('icon-prefs.png')))
@@ -595,3 +598,51 @@ def TitleDetails(url):
             'url': url})
 
     return titles
+
+####################################################################################################
+
+def Search(sender, query, url = None):
+    dir = MediaContainer(viewGroup = 'InfoList', title2 = sender.itemTitle)
+    
+    url = SEARCH_URL % String.Quote(query)
+    search_page = HTML.ElementFromURL(url)
+
+    items = search_page.xpath("//div[@class='resultsBlock']//div[@class='promoItem ']")
+    for item in items:
+    
+        title = item.xpath(".//div[@class='synopsisText']/h2/a/text()")[0]
+        Log(title)
+    
+        # If the specified URL is relative, then translate it
+        image = item.xpath("./a//img")[0].get('src')
+        if image.startswith("http") == False:
+            image = BASE_URL + image
+    
+        # If the specified URL is relative, then translate it
+        url = item.xpath(".//a")[0].get('href')
+        if url.startswith("http") == False:
+            url = BASE_URL + url
+    
+        # [Optional] - The Summary
+        summary = None
+        try: summary = item.xpath(".//div[@class='synopsisText']/p/text()")[0]
+        except: pass
+                
+        # [Optional] - The Summary
+        subtitle = None
+        try: subtitle = item.xpath(".//div[@class='synopsisText']//div[@class='availability']/text()")[0]
+        except: pass
+    
+        # Add the found item to the collection
+        dir.Append(WebVideoItem(
+            url,
+            title = title,
+            subtitle = subtitle,
+            summary = summary,
+            thumb = image))
+
+    # If there are no titles, we should warn the user.
+    if len(dir) == 0:
+        return MessageContainer(sender.itemTitle, L('ErrorNoTitles'))
+            
+    return dir

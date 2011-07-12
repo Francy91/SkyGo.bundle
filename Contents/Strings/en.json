@@ -144,7 +144,7 @@
     "DisneyChannelSummary": "The Disney Channel offers the very best in children's entertainment, with great live action shows, animated series and original movies made especially for kids.",
 
     "Search": "Search",
-    "SearchPrompt": "Please enter the title you would like to search…",
+    "SearchPrompt": "Please enter the title you would like to search...",
 
      "ErrorNoTitles": "There are no titles available for the selected item"
 }
